@@ -22,4 +22,9 @@ npm install   a-js-tools  --save
 - `getRandomInt` get random int number
 - `getRandomFloat` get random float number
 
+## class name
+
+- `toLowerCamelCase` Convert hyphenation to hump
+- `toSplitCase` Convert small hump to hyphen split
+
 If you have any questions, you can directly [submit question](https://github.com/lmssee/js-tools/issues/new)
