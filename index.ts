@@ -1,12 +1,10 @@
 export {
-  throttle,
-  debounce,
-  TypeOf,
-  typeOf,
-  getRandomInt,
+  toLowerCamelCase,
+  toSplitCase,
   getRandomFloat,
-} from './src/pureFunction';
+  getRandomInt,
+} from './src/index';
 
-export { toLowerCamelCase, toSplitCase } from './src/className';
+export { throttle, debounce } from './src/performance';
 
-export { t, isTTY } from './src/data';
+export type { DebounceAndThrottleReturnType } from './src/performance';

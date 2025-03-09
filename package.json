@@ -1,11 +1,11 @@
 {
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "name": "a-js-tools",
   "main": "cjs/index.cjs",
   "module": "mjs/index.mjs",
   "typings": "types/index.d.ts",
-  "description": "some  function",
+  "description": "Some functions that are available in js",
   "files": [
     "cjs/",
     "mjs/",
@@ -21,46 +21,59 @@
     "build": "npx ixxx rm dist run b",
     "clean": "npx ixxx up -d r node_modules package-lock.json run npm install run build",
     "prettier": "npx prettier . --write",
-    "test": "npx ixxx rm  test/out  && rollup --config rollup.config.test.js && node test/out/test/index.mjs",
+    "test": "npx ixxx clear && npx  jest",
     "versionPatch": "npm version patch --force  --no-git-tag-version  --allow-same-version=true",
-    "up": "npx ixxx pkg -u && npm run versionPatch && npm run build &&  cd dist && npm publish  && cd ../"
+    "pub": "npm run build &&  cd dist && npm publish  && cd ../"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lmssee/js-tools.git"
+    "url": "git+https://github.com/earthnutDev/a-js-tools.git"
   },
   "keywords": [
-    "js-tools",
     "a-js-tools"
   ],
-  "author": "lmssee <lmssee@outlook.com>  (https://lmssee.github.io)",
-  "homepage": "https://lmssee.github.io/js-tools",
+  "author": {
+    "name": "earthnut",
+    "email": "earthnut.dev@outlook.com",
+    "url": "https://earthnut.dev/about"
+  },
+  "homepage": "https://earthnut.dev/a-js-tools",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/lmssee/js-tools/issues",
-    "email": "lmssee@outlook.com"
+    "url": "https://github.com/earthnutDev/a-js-tools/issues",
+    "email": "earthnut.dev@outlook.com"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
+    "a-type-of-js": "^0.0.2",
     "tslib": "^2.6.3"
   },
   "devDependencies": {
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
     "@eslint/js": "^9.6.0",
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@types/expect": "^1.20.4",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.14.9",
+    "babel-jest": "^29.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
+    "expect": "^29.7.0",
     "globals": "^15.7.0",
+    "jest": "^29.7.0",
     "prettier": "^3.3.2",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.5.0",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.15.0"
