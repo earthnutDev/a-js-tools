@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "name": "a-js-tools",
   "main": "cjs/index.cjs",
   "module": "mjs/index.mjs",
@@ -17,10 +17,10 @@
     "types": "./types/index.d.ts"
   },
   "scripts": {
-    "a": "bash -c 'echo \"${1+ }$1a${2+ }$2\"' -- ",
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
     "build": "npx ixxx rm dist run b",
     "build:deploy": "bash -c 'git add . && git commit -m \"version: ${1+ }$1 $(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git push origin main' -- ",
+    "build:submit": "bash -c 'git add . && git commit -m \"submit: $(date +\"%Y-%m-%d %H:%M:%S\")${1:+ }$1\" && git push origin main' -- ",
     "clean": "npx ixxx up -d r node_modules package-lock.json run npm install run build",
     "prettier": "npx prettier . --write",
     "test": "npx ixxx clear && npx jest --coverage",
@@ -52,7 +52,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "a-type-of-js": "^0.0.2"
+    "a-type-of-js": "^0.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
