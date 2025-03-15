@@ -17,11 +17,15 @@
     "types": "./types/index.d.ts"
   },
   "scripts": {
+    "a": "bash -c 'echo \"${1+ }$1a${2+ }$2\"' -- ",
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
     "build": "npx ixxx rm dist run b",
+    "build:deploy": "bash -c 'git add . && git commit -m \"version: ${1+ }$1 $(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git push origin main' -- ",
     "clean": "npx ixxx up -d r node_modules package-lock.json run npm install run build",
     "prettier": "npx prettier . --write",
-    "test": "npx ixxx clear && npx  jest",
+    "test": "npx ixxx clear && npx jest --coverage",
+    "coverage": "codecov",
+    "report": "cat ./coverage/lcov.info | coveralls",
     "versionPatch": "npm version patch --force  --no-git-tag-version  --allow-same-version=true",
     "pub": "npm run build &&  cd dist && npm publish  && cd ../"
   },
@@ -48,8 +52,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "a-type-of-js": "^0.0.2",
-    "tslib": "^2.6.3"
+    "a-type-of-js": "^0.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
@@ -65,16 +68,20 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^20.14.9",
     "babel-jest": "^29.7.0",
+    "codecov": "^3.8.2",
+    "coveralls": "^3.1.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "expect": "^29.7.0",
     "globals": "^15.7.0",
     "jest": "^29.7.0",
+    "jest-junit": "^16.0.0",
     "prettier": "^3.3.2",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.5.0",
     "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.5.3",
     "typescript-eslint": "^7.15.0"
   }

@@ -3,7 +3,7 @@ import { getRandomInt, getRandomFloat } from './getRandomNumber';
 describe('getRandomInt', () => {
   // 这个测试本身就是个 bug
   it.skip('should return a random integer between 0 and 1 when no arguments are provided', () => {
-    const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5);
+    const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5); // 模拟 Math.random() 返回 0.5
     expect(getRandomInt()).toBe(0);
     spy.mockReturnValue(0.9);
     expect(getRandomInt()).toBe(1);
