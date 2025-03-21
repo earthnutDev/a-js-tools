@@ -41,9 +41,9 @@ export default {
     cleanup(),
     copy({
       targets: [
-        { src: 'package.json', dest: 'dist' },
-        { src: 'README.md', dest: 'dist' },
-        { src: 'LICENSE', dest: 'dist' },
+        // { src: 'package.json', dest: 'dist' },
+        // { src: 'README.md', dest: 'dist' },
+        // { src: 'LICENSE', dest: 'dist' },
       ],
     }),
   ],
