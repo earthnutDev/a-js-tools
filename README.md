@@ -10,7 +10,7 @@
 
 ---
 
-A purely functional tool that includes
+A purely functional tool that includes .
 
 ## pure function
 
