@@ -1,24 +1,29 @@
+/**
+ *
+ *
+ * @packageDocumentation
+ * @module @a-js-tools/performance
+ * @license MIT
+ */
+
 type Callback = (...args: unknown[]) => void;
 
-/**************************
- * DebounceAndThrottleReturnType
+/**
  *
+ *  debounce or throttle function return value type
  *
- *
- * @description: 函数防抖和函数节流的返回类型
- *
- **************************/
+ */
 export interface DebounceAndThrottleReturnType<F extends Callback> {
   (...args: Parameters<F>): void;
   cancel(): void;
 }
-/**************************************
+/**
  *
- * 函数防抖
+ * debounce function
  *
- * @param {*} callback
- * @param {number} delay 缺省 300 ms
- * @return {*}   返回的是一个函数
+ * @param   callback
+ * @param   delay Delay time in milliseconds (ms), default 200 (ms)
+ * @returns   return a function
  * @example
  *
  * ```ts
@@ -29,10 +34,8 @@ export interface DebounceAndThrottleReturnType<F extends Callback> {
  *   }
  * }
  *
- **************************************/
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function debounce<F extends (...args: any[]) => void>(
+ */
+export function debounce<F extends (...args: unknown[]) => void>(
   callback: F,
   delay: number = 200,
 ): DebounceAndThrottleReturnType<F> {
@@ -71,13 +74,13 @@ export function debounce<F extends (...args: any[]) => void>(
 }
 
 /**
- *  节流函数
- * @param callback
- * @param delay  延迟时间，单位为毫秒（ms），缺省 200（ms）
- * @returns  返回的是一个函数
+ *  throttle
+ *
+ * @param callback Callback function
+ * @param delay  Delay time in milliseconds (ms), default 200 (ms)
+ * @returns  return a function
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function throttle<F extends (...args: any[]) => void>(
+export function throttle<F extends (...args: unknown[]) => void>(
   callback: F,
   delay: number = 200,
 ): DebounceAndThrottleReturnType<F> {

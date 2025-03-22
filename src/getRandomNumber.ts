@@ -1,17 +1,23 @@
+/**
+ *
+ *
+ * @packageDocumentation
+ * @module @a-js-tools/get-random-number
+ * @license MIT
+ */
 import { isNaN, isNumber } from 'a-type-of-js';
 
 /**
  *
- * 获取一个随机整数
+ * Get a random integer
  *
- * 可传入两个参数，获取两参数之间的任意数
+ * You can pass in two parameters and get any number between them
  *
- * 若只传入一个参数，这获取小于（若提供的值为负数，则为大于）该数的整数
+ * If only one parameter is passed, this gets an integer that is less than (or greater than) that number if the value provided is negative
  *
- * @export
- * @param {number} max 最大值，不可为  `NaN`
- * @param {number} [min] 最小值，不可取值 `NaN`
- * @return {*}  {number}
+ * @param   max Maximum, not allowed  `NaN`
+ * @param   min Minimum, non-desirable value `NaN`
+ * @returns  a random integer number
  */
 export function getRandomInt(max: number = 1, min: number = 0): number {
   //  判断是否为 NaN 或 不是数字
@@ -24,7 +30,7 @@ export function getRandomInt(max: number = 1, min: number = 0): number {
     /**  获取最大值  */
     _max = Math.floor(Number(max));
   /**  两值交换  */
-  _min > _max && ([_max, _min] = [_min, _max]);
+  if (_min > _max) [_max, _min] = [_min, _max];
   //**  两值相等时，直接返回最大值  */
   if (_max === _min) return _max;
   return Math.round(Math.random() * (_max - _min) + _min);
@@ -32,19 +38,18 @@ export function getRandomInt(max: number = 1, min: number = 0): number {
 
 /**
  *
- * 获取一个随机浮点数数
+ * Gets a random floating-point number
  *
- * 可传入两个参数，获取两参数之间的任意数
+ * You can pass in two parameters and get any number between them
  *
- * 若只传入一个参数，这获取小于（若提供的值为负数，则为大于）该数的浮点数数
+ * If you pass in only one parameter, this gets the number of floating-point numbers that are less than (or greater than) that number if the value provided is negative
  *
- * @export
- * @param {number} max 最大值，缺省 1
- * @param {number} [min] 最小值，缺省 0
- * @return {*}  {number}
+ * @param   max Maximum, default 1
+ * @param min Minimum, default 0
+ * @returns   a random floating-point number
  */
 export function getRandomFloat(max: number = 1, min: number = 0): number {
   if (max == min) max++;
-  min > max && ([max, min] = [min, max]);
+  if (min > max) [max, min] = [min, max];
   return Math.random() * (max - min) + min;
 }

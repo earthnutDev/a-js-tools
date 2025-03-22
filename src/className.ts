@@ -1,36 +1,34 @@
-/****************************************************************************
- * @Author earthnut
- * @Email earthnut.dev@outlook.com
- * @ProjectName a-js-tools
- * @FileName className.ts
- * @CreateDate  周六  09/14/2024
- * @Description css 类名转换
- ****************************************************************************/
-
-/**************************************
+/**
  *
- * 转化为驼峰命名法
  *
- * @param str                   待转化的字符串
- * @param [dividingType='-']    分隔符。缺省为 "-"
- * @param [initial=false]       是否转化首字符。缺省为false（小驼峰式）
- * @returns {string}             转化后的字符串
+ * @packageDocumentation
+ * @module @a-js-tools/class-name
+ * @license MIT
+ */
+/**
  *
- **************************************/
+ * Translates into hump nomenclature
+ *
+ * @param str                   The string to be converted
+ * @param dividingType   Separator. Defaults to "-"
+ * @param initial Whether or not to convert the first character. Default is false (small hump type)
+ * @returns    hump nomenclature string (e.g. "helloWorld")
+ *
+ */
 export function toLowerCamelCase(
-  /**  待转化的字符串  */
+  /**  The string to be converted  */
   str: string,
-  /**  分隔符。缺省为 "-"  */
+  /**  Separator. Defaults to "-"  */
   dividingType: string = '-',
-  /**  是否转化首字符。缺省为false（小驼峰式）  */
+  /**  Whether or not to convert the first character. Default is false (small hump type)  */
   initial: boolean = false,
 ): string {
   let result: string = str;
-  /**************************
+  /**
    * 匹配规则
    *
    * - 匹配到分隔符，将分隔符后面的字符转化为大写
-   **************************/
+   */
   const template =
     /[\\]|[\^]|[?]|[-]|[.]|[(]|[)]|[|]|[[]\[\]]|[{]|[}]|[+]|[*]|[$]/;
   /**  转化首字符   */
@@ -52,13 +50,14 @@ export function toLowerCamelCase(
     : result;
 }
 
-/**************************************
+/**
+ * Convert to hyphenated joins
  *
- * @param str                      转化的字符串
- * @param [dividingType='-']       转化后单词间的连字符
+ * @param str                      The converted string
+ * @param dividingType       Hyphens between converted words
+ * @returns a hyphenated string (e.g. 'hello-world')
  *
- *
- **************************************/
+ */
 export function toSplitCase(str: string, dividingType: string = '-'): string {
   const result: string = str.replace(/[A-Z]/g, (match: string) =>
     dividingType.concat(match.toLowerCase()),

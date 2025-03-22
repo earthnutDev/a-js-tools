@@ -1,54 +1,62 @@
+/**
+ *
+ *
+ * @packageDocumentation
+ * @module @a-js-tools/get-random-string
+ * @license MIT
+ */
 import { isNaN, isNumber, isPlainObject } from 'a-type-of-js';
 import { randomBytes } from 'crypto';
 
-/**************************************
+/**
  *
- *  随机字符串生成函数
+ *  Random string generation function
  *
  *
  *
- **************************************/
+ */
 export type RandomStringOptions = {
-  /**************************
-   * 字符串长度
+  /**
+   * string length
    * @default 32
-   **************************/
+   */
   length?: number;
-  /**************************
-   * 字符串可选字符
+  /**
+   * String optional characters
    * @default '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-   **************************/
+   */
   chars?: string;
-  /**************************
-   * 是否包含数字
+  /**
+   * Whether or not to include numbers
    * @default false
-   **************************/
+   */
   includeNumbers?: boolean;
-  /**************************
-   * 是否包含大写字母
+  /**
+   * Whether or not to include capital letters
    * @default false
-   **************************/
+   */
   includeUppercaseLetters?: boolean;
-  /**************************
-   * 是否包含特殊字符
+  /**
+   * Whether or not it contains special characters
    * @default false
-   **************************/
+   */
   includeSpecial?: boolean;
-  /**************************
-   * 字符串类型
+  /**
+   * String type
    * @default 'string''
-   **************************/
+   */
   type?: 'string' | 'uuid';
 };
 
-/**************************************
+/**
  *
- *  随机字符串生成函数
- *  @param {number} length - 字符串长度
- *  @returns {string} - 生成的随机字符串
+ *  Random string generation
+ *
+ *  @param   length - string length
+ *  @returns  - A random string of characters generated
  *
  *
- **************************************/
+ */
 export function getRandomString(length?: RandomStringOptions | number): string {
   //   验证输入参数
   if (
@@ -123,20 +131,20 @@ export function getRandomString(length?: RandomStringOptions | number): string {
   // 循环遍历
   bytes.forEach(byte => (result += chars.charAt(byte % chars.length)));
 
-  /**************************************
+  /**
    *
    *  字符串交叉函数
    *
    *  非线形串交叉，对相交叉
    *
-   *  @param {string[]} str1 - 字符串1
-   *  @param {string} str2 - 字符串2
-   *  @returns {string} - 交叉后的字符串
+   *  @param  str1 - 字符串1
+   *  @param  str2 - 字符串2
+   *  @returns - 交叉后的字符串
    *  @example
    *  ```ts
    *  interleaveString('abc', '123') // 'a1b2c3'
    *  ```
-   **************************************/
+   */
   function interleaveString(str1: string[], str2: string) {
     const str1Length = str1.length,
       str2Length = str2.length;

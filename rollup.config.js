@@ -42,8 +42,9 @@ export default {
     copy({
       targets: [
         // { src: 'package.json', dest: 'dist' },
-        // { src: 'README.md', dest: 'dist' },
-        // { src: 'LICENSE', dest: 'dist' },
+        { src: 'README.md', dest: 'dist' },
+        { src: 'LICENSE', dest: 'dist' },
+        { src: 'CHANGELOG-en.md', dest: 'dist' },
       ],
     }),
   ],
