@@ -22,16 +22,18 @@
     "b": "rollup --config rollup.config.js && tsc -p tsconfig.types.json",
     "clean:package": "node scripts/clean-package-json.js",
     "build": "npx ixxx rm dist && npm run b && npm run clean:package",
-    "push:version": "bash -c 'git add . && git commit  -m \"version: $1 $(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git tag -a \"v$1\" -m \"$(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git push origin main --tags' -- ",
-    "push:submit": "bash -c 'git add . && git commit -m \"submit: $(date +\"%Y-%m-%d %H:%M:%S\")${1:+ }$1\" && git push origin main' -- ",
+    "push:version": "npm run beautify && bash -c 'git add . && git commit  -m \"version: $1 $(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git tag -a \"v$1\" -m \"$(date +\"%Y-%m-%d %H:%M:%S\")${2:+ }$2\" && git push origin main --tags' -- ",
+    "push:submit": "npm run beautify && bash -c 'git add . && git commit -m \"submit: $(date +\"%Y-%m-%d %H:%M:%S\")${1:+ }$1\" && git push origin main' -- ",
     "clean": "npx ixxx up -d r node_modules package-lock.json && npm install && npm run build",
     "eslint": "npx ixxx cls && eslint src",
-    "prettier": "npx prettier . --write",
+    "beautify": "npm run prettier",
+    "prettier": "npx ixxx cls && prettier . --write",
     "test": "npx ixxx clear && npx jest --coverage",
     "coverage": "codecov",
     "report": "cat ./coverage/lcov.info | coveralls",
     "versionPatch": "npx ixxx up -n",
-    "pub": "npm run build &&  cd dist && npm publish --access public && cd ../"
+    "pub": "npm run build &&  cd dist && npm publish --access public && cd ../",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
@@ -80,9 +82,11 @@
     "eslint-plugin-jsdoc": "^50.6.8",
     "expect": "^29.7.0",
     "globals": "^15.15.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0",
+    "lint-staged": "^15.5.0",
     "prettier": "^3.5.3",
     "rollup": "^4.36.0",
     "rollup-plugin-cleanup": "^3.2.1",
@@ -92,5 +96,11 @@
     "tslib": "^2.8.1",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.27.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,md,mdx,json}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }

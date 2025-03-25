@@ -12,7 +12,7 @@
  * @param str                   The string to be converted
  * @param dividingType   Separator. Defaults to "-"
  * @param initial Whether or not to convert the first character. Default is false (small hump type)
- * @returns    hump nomenclature string (e.g. "helloWorld")
+ * @returns  hump nomenclature string (e.g. "helloWorld")
  *
  */
 export function toLowerCamelCase(
