@@ -1,5 +1,5 @@
 /**
- *
+ * 驼峰命名与连字符命名法的互换
  *
  * @packageDocumentation
  * @module @a-js-tools/class-name
@@ -7,20 +7,20 @@
  */
 /**
  *
- * Translates into hump nomenclature
+ * 连字符连接转化为小/大驼峰命名法
  *
- * @param str                   The string to be converted
- * @param dividingType   Separator. Defaults to "-"
- * @param initial Whether or not to convert the first character. Default is false (small hump type)
- * @returns  hump nomenclature string (e.g. "helloWorld")
+ * @param str    待转化文本
+ * @param dividingType   连字符，缺省值为 "-"
+ * @param initial 是否转换第一个字符。默认值为 false （小驼峰类型）
+ * @returns 驼峰命名法字符串（e.g. “helloWorld”）
  *
  */
 export function toLowerCamelCase(
-  /**  The string to be converted  */
+  /**  待转化文本  */
   str: string,
-  /**  Separator. Defaults to "-"  */
+  /**  连字符，缺省值为 "-"  */
   dividingType: string = '-',
-  /**  Whether or not to convert the first character. Default is false (small hump type)  */
+  /** 是否转换第一个字符。默认值为 false （小驼峰类型） */
   initial: boolean = false,
 ): string {
   let result: string = str;
@@ -51,11 +51,11 @@ export function toLowerCamelCase(
 }
 
 /**
- * Convert to hyphenated joins
+ * 驼峰命名法转化为连字符连接
  *
- * @param str                      The converted string
- * @param dividingType       Hyphens between converted words
- * @returns a hyphenated string (e.g. 'hello-world')
+ * @param str          待转化文本
+ * @param dividingType       分割符
+ * @returns 分割符转化的文本 (e.g. 'hello-world')
  *
  */
 export function toSplitCase(str: string, dividingType: string = '-'): string {

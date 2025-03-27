@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "name": "a-js-tools",
   "main": "cjs/index.cjs",
   "module": "mjs/index.mjs",
@@ -31,8 +31,7 @@
     "test": "npx ixxx clear && npx jest --coverage",
     "coverage": "codecov",
     "report": "cat ./coverage/lcov.info | coveralls",
-    "versionPatch": "npx ixxx up -n",
-    "pub": "npm run build &&  cd dist && npm publish --access public && cd ../",
+    "vsu": "npx vsu",
     "prepare": "husky"
   },
   "repository": {
@@ -58,7 +57,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "a-type-of-js": ">=0.1.5 <1.0.0"
+    "a-type-of-js": ">=0.1.6 <1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

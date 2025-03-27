@@ -1,5 +1,5 @@
 /**
- *
+ * 防抖和节流
  *
  * @packageDocumentation
  * @module @a-js-tools/performance
@@ -10,7 +10,7 @@ type Callback = (...args: unknown[]) => void;
 
 /**
  *
- *  debounce or throttle function return value type
+ * 节流和防抖返回值类型
  *
  */
 export interface DebounceAndThrottleReturnType<F extends Callback> {
@@ -19,11 +19,11 @@ export interface DebounceAndThrottleReturnType<F extends Callback> {
 }
 /**
  *
- * debounce function
+ * 防抖
  *
- * @param   callback
- * @param   delay Delay time in milliseconds (ms), default 200 (ms)
- * @returns   return a function
+ * @param   callback 回调函数
+ * @param   delay    延迟时间（毫秒），默认 200 (ms)
+ * @returns   返回的闭包函数
  * @example
  *
  * ```ts
@@ -74,11 +74,11 @@ export function debounce<F extends (...args: unknown[]) => void>(
 }
 
 /**
- *  throttle
+ *   节流
  *
- * @param callback Callback function
- * @param delay  Delay time in milliseconds (ms), default 200 (ms)
- * @returns  return a function
+ * @param callback   回调函数
+ * @param delay      延迟时间（毫秒），默认 200 (ms)
+ * @returns   返回的闭包函数
  */
 export function throttle<F extends (...args: unknown[]) => void>(
   callback: F,

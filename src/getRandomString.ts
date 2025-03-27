@@ -1,5 +1,5 @@
 /**
- *
+ * 获取随机字符串
  *
  * @packageDocumentation
  * @module @a-js-tools/get-random-string
@@ -17,32 +17,39 @@ import { randomBytes } from 'crypto';
  */
 export type RandomStringOptions = {
   /**
-   * string length
+   * 字符串长度
+   *
    * @default 32
    */
   length?: number;
   /**
-   * String optional characters
+   *  字符集
    * @default '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
    */
   chars?: string;
   /**
-   * Whether or not to include numbers
+   *  是否包含数字
+   *
    * @default false
    */
   includeNumbers?: boolean;
   /**
-   * Whether or not to include capital letters
+   *  是否包含大写字母
+   *
    * @default false
    */
   includeUppercaseLetters?: boolean;
   /**
-   * Whether or not it contains special characters
+   * 是否包含特殊字符
+   *
    * @default false
    */
   includeSpecial?: boolean;
   /**
-   * String type
+   * 字符类型
+   *
+   * 缺省值为 'string'，可选为 'uuid'
+   *
    * @default 'string''
    */
   type?: 'string' | 'uuid';
@@ -50,10 +57,10 @@ export type RandomStringOptions = {
 
 /**
  *
- *  Random string generation
+ *  获取随机字符串
  *
- *  @param   length - string length
- *  @returns  - A random string of characters generated
+ *  @param   length - 字符串长度
+ *  @returns  - 随机字符串
  *
  *
  */
