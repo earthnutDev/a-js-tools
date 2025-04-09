@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["ismi", "ixxx", "letmiseesee", "tseslint"]
+  "marscode.codeCompletionPro": {
+    "enableCodeCompletionPro": true
+  },
+  "marscode.chatLanguage": "cn"
 }
