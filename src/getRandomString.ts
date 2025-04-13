@@ -5,8 +5,7 @@
  * @module @a-js-tools/get-random-string
  * @license MIT
  */
-import { isNaN, isNumber, isPlainObject } from 'a-type-of-js';
-import { randomBytes } from 'crypto';
+import { isNaN, isNumber, isPlainObject, isUndefined } from 'a-type-of-js';
 
 /**
  *
@@ -130,7 +129,10 @@ export function getRandomString(length?: RandomStringOptions | number): string {
   }
 
   // 使用密码学安全的随机数生成器
-  const bytes = randomBytes(initOptions.length);
+  const bytes =
+    !isUndefined(window) && window.crypto
+      ? window.crypto.getRandomValues(new Uint8Array(initOptions.length))
+      : global.crypto.getRandomValues(new Uint8Array(initOptions.length));
   let result = '';
   /**  获取最后的 chars 数据  */
   const chars = templateCharsArr.join('');
