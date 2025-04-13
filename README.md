@@ -15,6 +15,7 @@ npm install   a-js-tools  --save
 - `lmThrottle` 节流函数
 - `getRandomInt` 获取随机的整数
 - `getRandomFloat` 获取随机的浮点数
+- `getRandomString` 获取随机字符串
 
 ## class 名称转化
 
