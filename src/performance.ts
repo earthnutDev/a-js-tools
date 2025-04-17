@@ -85,7 +85,7 @@ export function throttle<F extends (...args: unknown[]) => void>(
   delay: number = 200,
 ): DebounceAndThrottleReturnType<F> {
   // 强制转换非数值
-  if (!isFinite(delay) || (isFinite(delay) && delay < 0)) delay = 200;
+  if (!isFinite(delay) || (isFinite(delay) && delay < 4)) delay = 200;
   /**  延迟控制插销   */
   let inThrottle = false;
   /**  延迟控制   */

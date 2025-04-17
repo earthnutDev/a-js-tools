@@ -21,6 +21,14 @@ describe('debounce', () => {
     expect(callback).toHaveBeenCalled(); // 200ms后，callback被调用
   });
 
+  it('defaults to 200ms delay when delay is not a finite non-negative number', () => {
+    const debounced = debounce(callback, -200); // 200ms
+    debounced(); // 调用debounced函数
+    expect(callback).not.toHaveBeenCalled(); // 200ms后，callback没有被调用
+    jest.advanceTimersByTime(200); // 快进200ms
+    expect(callback).toHaveBeenCalled(); // 200ms后，callback被调用
+  });
+
   it('executes callback after delay', () => {
     const debounced = debounce(callback, 100); // 创建一个延迟为100ms的函数
     debounced(); // 调用debounced函数
@@ -80,7 +88,7 @@ describe('throttle', () => {
 
   // 这个测试没有必要
   it('should use the default delay for invalid delay values', () => {
-    const throttled = throttle(callback, -1); // 无效的延迟
+    const throttled = throttle(callback, -100); // 无效的延迟
     throttled(); // 调用throttled函数
     expect(callback).toHaveBeenCalledTimes(1); // 检查callback是否没有被调用
     jest.advanceTimersByTime(200); // 默认延迟

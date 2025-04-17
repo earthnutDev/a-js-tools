@@ -9,13 +9,15 @@
 npm install   a-js-tools  --save
 ```
 
-## pure function
+## 纯函数
 
 - `lmDebounce` 防抖函数
 - `lmThrottle` 节流函数
 - `getRandomInt` 获取随机的整数
 - `getRandomFloat` 获取随机的浮点数
 - `getRandomString` 获取随机字符串
+- `escapeRegExp` 转义字符串为简单的正则表达式
+- `autoEscapedRegExp` 生成简单的正则表达式
 
 ## class 名称转化
 

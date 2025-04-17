@@ -9,9 +9,7 @@ import { isNaN, isNumber, isPlainObject, isUndefined } from 'a-type-of-js';
 
 /**
  *
- *  Random string generation function
- *
- *
+ *  随机字符串 生成器
  *
  */
 export type RandomStringOptions = {
@@ -56,31 +54,37 @@ export type RandomStringOptions = {
 
 /**
  *
- *  获取随机字符串
+ *  获取简单的随机字符串
  *
- *  @param   length - 字符串长度
+ *  @param   options - 字符串长度
  *  @returns  - 随机字符串
  *
  *
  */
-export function getRandomString(length?: RandomStringOptions | number): string {
+export function getRandomString(
+  options?: RandomStringOptions | number,
+): string {
   //   验证输入参数
   if (
     // 参数类型错误
-    (!isPlainObject(length) && !isNumber(length)) ||
+    (!isPlainObject(options) && !isNumber(options)) ||
     // 参数为 NaN
-    (isNumber(length) && isNaN(length)) ||
+    (isNumber(options) && isNaN(options)) ||
     // 参数为数字时为无穷大
-    (isNumber(length) && !isFinite(length)) ||
+    (isNumber(options) && !isFinite(options)) ||
     // 参数为数字时为非整数
-    (isNumber(length) && !Number.isInteger(length)) ||
+    (isNumber(options) && !Number.isInteger(options)) ||
     // 参数为数字时为负数
-    (isNumber(length) && Number.isInteger(length) && length < 1) ||
+    (isNumber(options) && Number.isInteger(options) && options < 1) ||
     // 参数为数值然而却小于 1
-    (isNumber(length) && length < 1) ||
-    (isPlainObject(length) && isNumber(length.length) && length.length < 1)
+    (isNumber(options) && options < 1) ||
+    // 参数为对象但是 length 属性非数值
+    (isPlainObject(options) &&
+      (!isNumber(options.length) ||
+        options.length < 1 ||
+        !Number.isInteger(options.length)))
   ) {
-    throw new TypeError('Invalid argument type (getRandomString)');
+    throw new TypeError('参数类型错误 ❌ (getRandomString)');
   }
 
   const initOptions: RandomStringOptions & {
@@ -104,13 +108,13 @@ export function getRandomString(length?: RandomStringOptions | number): string {
     return crypto.randomUUID();
   }
 
-  if (isNumber(length) && Number.isInteger(length) && length > 0) {
+  if (isNumber(options) && Number.isInteger(options) && options > 0) {
     // 验证输入参数
-    Object.assign(initOptions, { length });
+    Object.assign(initOptions, { length: options });
   }
 
-  if (isPlainObject(length)) {
-    Object.assign(initOptions, length);
+  if (isPlainObject(options)) {
+    Object.assign(initOptions, options);
     initOptions.length = initOptions.length < 1 ? 32 : initOptions.length;
   }
   /**  生成随机字符串  */
