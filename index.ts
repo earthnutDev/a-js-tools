@@ -13,3 +13,5 @@ export type { DebounceAndThrottleReturnType } from './src/performance';
 export { escapeRegExp, autoEscapedRegExp } from './src/regexp';
 
 export { isBrowser, isNode } from './src/isNode';
+
+export { createConstructor } from './src/createConstructor';
