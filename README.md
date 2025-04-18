@@ -20,6 +20,7 @@ npm install   a-js-tools  --save
 - `autoEscapedRegExp` 生成简单的正则表达式
 - `isBrowser` 是否为浏览器环境
 - `isNode` 是否为 Node 环境
+- `createConstructor` 构造构造函数
 
 ## class 名称转化
 
