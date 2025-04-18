@@ -15,3 +15,5 @@ export { escapeRegExp, autoEscapedRegExp } from './src/regexp';
 export { isBrowser, isNode } from './src/isNode';
 
 export { createConstructor } from './src/createConstructor';
+
+export type { CreateConstructor } from './src/createConstructor';

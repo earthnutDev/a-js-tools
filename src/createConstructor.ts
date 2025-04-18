@@ -1,4 +1,9 @@
-interface CreateConstructor<T, Args extends unknown[] = unknown[]> {
+/**
+ *
+ * 构建构建的构建函数
+ *
+ */
+export interface CreateConstructor<T, Args extends unknown[] = unknown[]> {
   new (...args: Args): T;
 }
 /**
