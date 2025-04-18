@@ -18,6 +18,8 @@ npm install   a-js-tools  --save
 - `getRandomString` 获取随机字符串
 - `escapeRegExp` 转义字符串为简单的正则表达式
 - `autoEscapedRegExp` 生成简单的正则表达式
+- `isBrowser` 是否为浏览器环境
+- `isNode` 是否为 Node 环境
 
 ## class 名称转化
 

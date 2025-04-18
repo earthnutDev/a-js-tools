@@ -9,7 +9,7 @@ on:
         required: false
         default: '手动触发'
       ref:
-        description: '触发原因（选填）'
+        description: '触发的分支（选填，默认为当前分支）'
         required: false
         default: ''
 

@@ -5,7 +5,8 @@
  * @module @a-js-tools/get-random-string
  * @license MIT
  */
-import { isNaN, isNumber, isPlainObject, isUndefined } from 'a-type-of-js';
+import { isNaN, isNumber, isPlainObject } from 'a-type-of-js';
+import { isBrowser } from './isNode';
 
 /**
  *
@@ -134,7 +135,7 @@ export function getRandomString(
 
   // 使用密码学安全的随机数生成器
   const bytes =
-    !isUndefined(window) && window.crypto
+    isBrowser() && window.crypto
       ? window.crypto.getRandomValues(new Uint8Array(initOptions.length))
       : global.crypto.getRandomValues(new Uint8Array(initOptions.length));
   let result = '';
