@@ -1,3 +1,5 @@
+import { isUndefined } from 'a-type-of-js';
+
 /**
  *
  * 判断当前环境是否为 node 环境
@@ -5,7 +7,7 @@
  */
 export function isNode(): boolean {
   return (
-    typeof window === 'undefined' || typeof window.document === 'undefined'
+    isUndefined(globalThis.window) || isUndefined(globalThis.window.document)
   );
 }
 

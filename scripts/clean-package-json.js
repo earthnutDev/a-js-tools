@@ -39,6 +39,10 @@ packageJson = {
     access: 'public',
     registry: 'https://registry.npmjs.org/',
   },
+  engines: {
+    node: '>=12.0.0',
+  },
+  browserslist: ['last 2 versions not ie <= 11'],
 };
 
 const distPath = getDirectoryBy('dist', 'directory');

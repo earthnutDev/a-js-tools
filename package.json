@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.5.4-beta.0",
+  "version": "0.5.4",
   "name": "a-js-tools",
   "private": true,
   "description": "一点点 🤏  js 函数",
@@ -9,6 +9,7 @@
     "clean:package": "node scripts/clean-package-json.js",
     "build": "jja rm dist && npm run b && npm run clean:package",
     "clean": "jja up -d r node_modules package-lock.json && npm install && npm run build",
+    "dev": "jja rm .eg && rollup --config rollup.dev.config.js && node .eg/index.mjs",
     "diff": "jja pkg --diff",
     "eslint": "jja cls && eslint src",
     "beautify": "npm run prettier",
