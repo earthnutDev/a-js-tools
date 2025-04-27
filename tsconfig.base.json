@@ -8,6 +8,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "moduleResolution": "Node",
+    "isolatedModules": true,
     "lib": ["ESNext", "DOM"],
     "sourceMap": false,
     "resolveJsonModule": true,

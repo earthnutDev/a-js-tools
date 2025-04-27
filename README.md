@@ -27,6 +27,14 @@ npm install   a-js-tools  --save
 - `toLowerCamelCase` 转化为小驼峰
 - `toSplitCase` 转化为连接符分隔
 
+## 数组相关
+
+- `intersection` 方法，计算两个数组的交集（两个数组共有的元素）
+- `union` 方法，计算两个数组的并集（两个数组合并在一起并去重）
+- `difference` 方法，计算两个数组的差集（以第一个数组为基准）
+- `symmetricDifference` 方法，计算两个数组的对称差集（在两个数组都不共有的元素）
+- `enArr` 对象，包含上面的方法
+
 ## 查看文档
 
-产看 [https://earthnut.dev/a-js-tools](https://earthnut.dev/a-js-tools)
+查看 [https://earthnut.dev/a-js-tools](https://earthnut.dev/a-js-tools)

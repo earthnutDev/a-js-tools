@@ -8,7 +8,6 @@ export default () => {
       '^.+\\.tsx?$': [
         'ts-jest',
         {
-          isolatedModules: true,
           tsconfig: 'tsconfig.json',
         },
       ],

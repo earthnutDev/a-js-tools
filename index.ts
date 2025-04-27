@@ -14,6 +14,14 @@ export { escapeRegExp, autoEscapedRegExp } from './src/regexp';
 
 export { isBrowser, isNode } from './src/isNode';
 
-export { createConstructor } from './src/createConstructor';
+export { createConstructor } from './src/object/createConstructor';
 
-export type { CreateConstructor } from './src/createConstructor';
+export type { CreateConstructor } from './src/object/createConstructor';
+
+export {
+  intersection,
+  enArr,
+  union,
+  difference,
+  symmetricDifference,
+} from './src/array/';

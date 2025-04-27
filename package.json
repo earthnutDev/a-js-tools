@@ -1,6 +1,6 @@
 {
   "type": "module",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "name": "a-js-tools",
   "private": true,
   "description": "一点点 🤏  js 函数",
@@ -54,7 +54,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-junit": "^16.0.0",
-    "jja": "^2.1.1",
+    "jja": "^2.2.2",
     "lint-staged": "^15.5.1",
     "pjj": "^0.1.4",
     "prettier": "^3.5.3",

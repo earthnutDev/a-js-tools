@@ -10,6 +10,17 @@ describe('getRandomInt', () => {
     spy.mockRestore();
   });
 
+  it('应当抛出错误', () => {
+    const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5);
+    expect(() => getRandomInt(Infinity, 1)).toThrow(TypeError);
+    expect(() => getRandomInt(1, Infinity)).toThrow(TypeError);
+    expect(() => getRandomInt('5', 1)).toThrow(TypeError);
+    expect(() => getRandomInt(1, '5')).toThrow(TypeError);
+    expect(() => getRandomInt(NaN, 1)).toThrow(TypeError);
+    expect(() => getRandomInt(1, NaN)).toThrow(TypeError);
+    spy.mockRestore();
+  });
+
   it('should return a random integer within the specified range', () => {
     const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5);
     expect(getRandomInt(5, 1)).toBe(3);
@@ -40,6 +51,16 @@ describe('getRandomFloat', () => {
     expect(result).toBeLessThan(1);
   });
 
+  it('应当抛出错误', () => {
+    const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5);
+    expect(() => getRandomFloat('5', 1.5)).toThrow(TypeError);
+    spy.mockRestore();
+  });
+  it('应当抛出错误', () => {
+    const spy = jest.spyOn(Math, 'random').mockReturnValue(0.5);
+    expect(() => getRandomFloat(NaN, 1.5)).toThrow(TypeError);
+    spy.mockRestore();
+  });
   it('should return a random float between min and max when both are provided', () => {
     const min = 5;
     const max = 10;

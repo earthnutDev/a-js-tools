@@ -40,6 +40,7 @@ export function getRandomInt(max: number = 1, min: number = 0): number {
   if (_min > _max) [_max, _min] = [_min, _max];
   //**  两值相等时，直接返回最大值  */
   if (_max === _min) return _max;
+
   return Math.round(Math.random() * (_max - _min) + _min);
 }
 
