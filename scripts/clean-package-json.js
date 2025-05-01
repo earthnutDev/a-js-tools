@@ -6,8 +6,9 @@ import {
 } from 'a-node-tools';
 let packageJson = readFileToJsonSync('./package.json');
 
-const deleteKeys = ['scripts', 'devDependencies', 'lint-staged', 'private'];
-for (const key of deleteKeys) delete packageJson[key];
+['scripts', 'devDependencies', 'lint-staged', 'private'].forEach(
+  e => delete packageJson[e],
+);
 
 packageJson = {
   ...packageJson,
@@ -45,8 +46,10 @@ packageJson = {
   browserslist: ['last 2 versions not ie <= 11'],
 };
 
-const distPath = getDirectoryBy('dist', 'directory');
+{
+  const distPath = getDirectoryBy('dist', 'directory');
 
-const distPackagePath = pathJoin(distPath, './dist/package.json');
+  const distPackagePath = pathJoin(distPath, './dist/package.json');
 
-writeJsonFile(distPackagePath, packageJson);
+  writeJsonFile(distPackagePath, packageJson);
+}
