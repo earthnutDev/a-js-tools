@@ -23,7 +23,7 @@
     "prepublishOnly": "pjj",
     "prepare": "husky"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "a-type-of-js": ">=0.2.0 <1.0.0"
   },
@@ -32,6 +32,7 @@
     "@babel/preset-env": "^7.27.2",
     "@babel/preset-typescript": "^7.27.1",
     "@eslint/js": "^9.26.0",
+    "@qqi/check-version": "^0.1.2",
     "@qqi/rollup-external": "^0.1.1",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
