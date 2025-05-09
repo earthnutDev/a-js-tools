@@ -1,4 +1,4 @@
-# a-js-tools
+# 一点点 🤏 js 函数
 
 [![version](<https://img.shields.io/npm/v/a-js-tools.svg?logo=npm&logoColor=rgb(0,0,0)&label=版本号&labelColor=rgb(73,73,228)&color=rgb(0,0,0)>)](https://www.npmjs.com/package/a-js-tools) [![Coverage Status](<https://img.shields.io/coverallsCoverage/github/earthnutDev/a-js-tools?logo=coveralls&label=coveralls&labelColor=rgb(12, 244, 39)&color=rgb(0,0,0)>)](https://coveralls.io/github/earthnutDev/a-js-tools?branch=main) [![codecov](<https://img.shields.io/codecov/c/github/earthnutDev/a-js-tools/main?logo=codecov&label=codecov&labelColor=rgb(7, 245, 245)&color=rgb(0,0,0)>)](https://codecov.io/gh/earthnutDev/a-js-tools) [![issues 提交](<https://img.shields.io/badge/issues-提交-rgb(255,0,63)?logo=github>)](https://github.com/earthnutDev/a-js-tools/issues)
 一个纯函数的工具
@@ -6,7 +6,7 @@
 ## 安装
 
 ```sh
-npm install   a-js-tools  --save
+npm install --save a-js-tools
 ```
 
 ## 纯函数

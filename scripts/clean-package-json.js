@@ -41,7 +41,8 @@ packageJson = {
     registry: 'https://registry.npmjs.org/',
   },
   engines: {
-    node: '>=12.0.0',
+    // globalThis 支持的最低版本的 node 为 12
+    node: '>=15.0.0',
   },
   browserslist: ['last 2 versions not ie <= 11'],
 };
