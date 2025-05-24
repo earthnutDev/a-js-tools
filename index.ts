@@ -25,3 +25,5 @@ export {
   difference,
   symmetricDifference,
 } from './src/array/';
+
+export { sleep } from './src/sleep';

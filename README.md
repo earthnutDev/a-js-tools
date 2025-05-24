@@ -21,6 +21,7 @@ npm install --save a-js-tools
 - `isBrowser` 是否为浏览器环境
 - `isNode` 是否为 Node 环境
 - `createConstructor` 构造构造函数
+- `sleep` 你的线程太累了，让它丫的睡一会吧
 
 ## class 名称转化
 
