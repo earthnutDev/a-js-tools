@@ -27,7 +27,9 @@ export default {
     },
   ],
   // 配置需要排除的包
-  external: external(),
+  external: external({
+    include: ['src/object/createConstructor'],
+  }),
   plugins: [
     resolve(),
     commonjs(),

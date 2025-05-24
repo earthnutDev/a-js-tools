@@ -1,3 +1,8 @@
+import {
+  CreateConstructor,
+  createConstructor,
+} from 'src/object/createConstructor';
+
 export {
   toLowerCamelCase,
   toSplitCase,
@@ -21,5 +26,9 @@ export {
   difference,
   symmetricDifference,
 } from './src/array/';
+
+export { createConstructor };
+
+export type { CreateConstructor };
 
 export { sleep } from './src/sleep';
