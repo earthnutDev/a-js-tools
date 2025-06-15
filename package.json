@@ -25,7 +25,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "a-type-of-js": "^1.0.1"
+    "a-type-of-js": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.27.4",
@@ -53,17 +53,17 @@
     "globals": "^16.2.0",
     "gvv": "^0.0.8",
     "husky": "^9.1.7",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jest": "^30.0.0",
+    "jest-environment-jsdom": "^30.0.0",
     "jest-junit": "^16.0.0",
     "jja": "^2.3.8",
-    "lint-staged": "^16.1.1",
+    "lint-staged": "^16.1.2",
     "pjj": "^1.0.1",
     "prettier": "^3.5.3",
     "rollup": "^4.43.0",
     "rollup-plugin-cleanup": "^3.2.1",
     "rollup-plugin-copy": "^3.5.0",
-    "ts-jest": "^29.3.4",
+    "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.8.3",

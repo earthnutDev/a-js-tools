@@ -27,7 +27,7 @@ packageJson = {
   },
   keywords: ['a-js-tools', 'earthnut'],
   author: {
-    name: 'earthnut',
+    name: '花生亻',
     email: 'earthnut.dev@outlook.com',
     url: 'https://earthnut.dev/about',
   },
