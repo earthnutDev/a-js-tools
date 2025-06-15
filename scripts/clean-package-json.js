@@ -12,20 +12,20 @@ let packageJson = readFileToJsonSync('./package.json');
 
 packageJson = {
   ...packageJson,
-  main: 'cjs/index.cjs',
-  module: 'mjs/index.mjs',
-  types: 'types/index.d.ts',
-  files: ['mjs', 'cjs', 'types'],
+  main: 'index.cjs',
+  module: 'index.mjs',
+  types: 'index.d.ts',
+  files: ['index.mjs', 'index.cjs', 'index.d.ts', 'src'],
   exports: {
-    import: './mjs/index.mjs',
-    require: './cjs/index.cjs',
-    types: './types/index.d.ts',
+    import: './index.mjs',
+    require: './index.cjs',
+    types: './index.d.ts',
   },
   repository: {
     type: 'git',
     url: 'git+https://github.com/earthnutDev/a-js-tools.git',
   },
-  keywords: ['a-js-tools'],
+  keywords: ['a-js-tools', 'earthnut'],
   author: {
     name: 'earthnut',
     email: 'earthnut.dev@outlook.com',
