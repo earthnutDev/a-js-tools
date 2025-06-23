@@ -6,9 +6,7 @@ import { isUndefined } from 'a-type-of-js';
  *
  */
 export function isNode(): boolean {
-  return (
-    isUndefined(globalThis.window) || isUndefined(globalThis.window.document)
-  );
+  return !isUndefined(globalThis?.process?.versions?.node);
 }
 
 /**
