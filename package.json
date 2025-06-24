@@ -18,7 +18,7 @@
     "coverage": "codecov",
     "report": "cat ./coverage/lcov.info | coveralls",
     "push:version": "gvv",
-    "push:submit": "gvv",
+    "push": "gvv",
     "vjj": "vjj -b",
     "prepublishOnly": "pjj",
     "prepare": "husky"
