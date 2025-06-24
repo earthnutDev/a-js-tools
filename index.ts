@@ -13,7 +13,10 @@ export {
 
 export { throttle, debounce } from './src/performance';
 
-export type { DebounceAndThrottleReturnType } from './src/performance';
+export type {
+  DebounceAndThrottleReturnType,
+  debounce_throttle_options,
+} from './src/performance';
 
 export { escapeRegExp, autoEscapedRegExp } from './src/regexp';
 

@@ -1,4 +1,4 @@
-import { isArray } from 'a-type-of-js';
+import { isArray, isEmptyArray } from 'a-type-of-js';
 
 /**
  *
@@ -42,7 +42,7 @@ import { isArray } from 'a-type-of-js';
  *
  */
 export function union<T>(...arrays: T[][]): T[] {
-  if (arrays.length === 0) {
+  if (isEmptyArray(arrays)) {
     return [];
   }
 

@@ -5,7 +5,7 @@
  * @module @a-js-tools/get-random-string
  * @license MIT
  */
-import { isNaN, isNumber, isPlainObject } from 'a-type-of-js';
+import { isNaN, isNumber, isPlainObject, isUndefined } from 'a-type-of-js';
 import { isBrowser } from './isNode';
 
 /**
@@ -165,7 +165,7 @@ export function getRandomString(
     const maxLength = Math.max(str1Length, str2Length);
 
     for (let i = 0; i < maxLength; i++) {
-      if (i < str1Length && str2[i] !== undefined) {
+      if (i < str1Length && !isUndefined(str2[i])) {
         str1[i] += str2[i];
       } else if (i < str2Length) {
         str1[i] = str2[i];
