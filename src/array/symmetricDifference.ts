@@ -1,4 +1,4 @@
-import { isArray } from 'a-type-of-js';
+import { isArray, isEmptyArray } from 'a-type-of-js';
 import { difference } from './difference';
 
 /**
@@ -34,17 +34,9 @@ import { difference } from './difference';
  *
  */
 export function symmetricDifference<T>(a: T[], b: T[]): T[] {
-  if (!isArray(a) || !isArray(b)) {
-    throw new TypeError('参数必须是数组');
-  }
-
-  if (a.length === 0) {
-    return [...b];
-  }
-
-  if (b.length === 0) {
-    return [...a];
-  }
+  if (!isArray(a) || !isArray(b)) throw new TypeError('参数必须是数组');
+  if (isEmptyArray(a)) return [...b];
+  if (isEmptyArray(b)) return [...a];
 
   return [...difference(a, b), ...difference(b, a)];
 }

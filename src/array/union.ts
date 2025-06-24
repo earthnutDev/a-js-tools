@@ -1,4 +1,4 @@
-import { isArray } from 'a-type-of-js';
+import { isArray, isEmptyArray } from 'a-type-of-js';
 
 /**
  *
@@ -42,24 +42,15 @@ import { isArray } from 'a-type-of-js';
  *
  */
 export function union<T>(...arrays: T[][]): T[] {
-  if (arrays.length === 0) {
-    return [];
-  }
-
-  if (arrays.some(i => !isArray(i))) {
+  if (isEmptyArray(arrays)) return [];
+  if (arrays.some(i => !isArray(i)))
     throw new TypeError('参数必须都是数组形式的元素');
-  }
-
-  if (arrays.length === 1) {
-    return [...arrays[0]];
-  }
+  if (arrays.length === 1) return [...arrays[0]];
 
   const resultSet = new Set<T>();
 
   for (const array of arrays) {
-    for (const item of array) {
-      resultSet.add(item);
-    }
+    for (const item of array) resultSet.add(item);
   }
 
   return Array.from(resultSet);

@@ -6,6 +6,8 @@
  * @license MIT
  */
 
+import { isFunction, isNull, isNumber, isUndefined } from 'a-type-of-js';
+
 type Callback = (...args: unknown[]) => void;
 
 /**
@@ -17,12 +19,21 @@ export interface DebounceAndThrottleReturnType<F extends Callback> {
   (...args: Parameters<F>): void;
   cancel(): void;
 }
+
+/**  第二参数  */
+export type debounce_throttle_options =
+  | {
+      delay?: number;
+      this?: null | unknown;
+    }
+  | number;
+
 /**
  *
  * 防抖
  *
  * @param   callback 回调函数
- * @param   delay    延迟时间（毫秒），默认 200 (ms)
+ * @param   options    延迟时间（毫秒），默认 200 (ms) 或包含 this 的配置
  * @returns   返回的闭包函数
  * @example
  *
@@ -37,14 +48,22 @@ export interface DebounceAndThrottleReturnType<F extends Callback> {
  */
 export function debounce<F extends (...args: unknown[]) => void>(
   callback: F,
-  delay: number = 200,
+  options: debounce_throttle_options = 200,
 ): DebounceAndThrottleReturnType<F> {
-  if (typeof callback !== 'function') {
-    throw new TypeError('callback must be a function');
-  }
-  if (!isFinite(delay) || delay < 0)
+  if (!isFunction(callback)) throw new TypeError('callback must be a function');
+
+  if (isNumber(options))
+    options = {
+      delay: options,
+      this: null,
+    };
+  if (
+    isUndefined(options.delay) ||
+    !isFinite(options.delay) ||
+    options.delay < 0
+  )
     // 强制转换非数值
-    delay = 200;
+    options.delay = 200;
 
   /**  定时器返回的 id  */
   let timeoutId: NodeJS.Timeout | undefined;
@@ -59,17 +78,15 @@ export function debounce<F extends (...args: unknown[]) => void>(
     timeoutId = setTimeout(
       () => {
         try {
-          Reflect.apply(callback, null, args);
+          Reflect.apply(callback, options?.this ?? null, args);
         } catch (error) {
           console.log('Debounce callback throw an error', error);
         }
       },
-      Math.max(delay, 5),
+      Math.max(options?.delay ?? 5, 5),
     );
   };
-  result.cancel = () => {
-    clear();
-  };
+  result.cancel = () => clear();
   return result;
 }
 
@@ -77,15 +94,27 @@ export function debounce<F extends (...args: unknown[]) => void>(
  *   节流
  *
  * @param callback   回调函数
- * @param delay      延迟时间（毫秒），默认 200 (ms)
+ * @param options      延迟时间（毫秒），默认 200 (ms) 或设置 this
  * @returns   返回的闭包函数
  */
 export function throttle<F extends (...args: unknown[]) => void>(
   callback: F,
-  delay: number = 200,
+  options: debounce_throttle_options = 200,
 ): DebounceAndThrottleReturnType<F> {
-  // 强制转换非数值
-  if (!isFinite(delay) || (isFinite(delay) && delay < 4)) delay = 200;
+  if (!isFunction(callback)) throw new TypeError('callback must be a function');
+
+  if (isNumber(options))
+    options = {
+      delay: options,
+      this: null,
+    };
+  if (
+    isUndefined(options.delay) ||
+    !isFinite(options.delay) ||
+    options.delay < 0
+  )
+    // 强制转换非数值
+    options.delay = 200;
   /**  延迟控制插销   */
   let inThrottle = false;
   /**  延迟控制   */
@@ -94,25 +123,24 @@ export function throttle<F extends (...args: unknown[]) => void>(
   const throttled = (...args: Parameters<F>) => {
     if (inThrottle) return;
     try {
-      Reflect.apply(callback, null, args);
+      Reflect.apply(callback, options?.this ?? null, args);
     } catch (error) {
-      console.error('Throttle callback throw an error', error);
+      console.error('Throttle 执行回调抛出问题', error);
     }
     inThrottle = true;
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
-    }
+    if (!isNull(timeoutId)) clearTimeout(timeoutId);
 
-    timeoutId = setTimeout(() => {
-      inThrottle = false;
-      timeoutId = null;
-    }, delay);
+    timeoutId = setTimeout(
+      () => {
+        inThrottle = false;
+        timeoutId = null;
+      },
+      Math.max(options?.delay ?? 5, 5),
+    );
   };
 
   throttled.cancel = () => {
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
-    }
+    if (!isNull(timeoutId)) clearTimeout(timeoutId);
     inThrottle = false;
     timeoutId = null;
   };

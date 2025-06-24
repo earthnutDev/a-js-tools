@@ -1,3 +1,5 @@
+import { isZero } from 'a-type-of-js';
+
 /**
  *
  * ## 线程休息
@@ -26,7 +28,7 @@
 export async function sleep(delay: number = 1000): Promise<void> {
   if (!isFinite(delay) || delay < 0)
     throw new TypeError('delay 应该是一个正常的数值');
-  if (delay === 0) return Promise.resolve();
+  if (isZero(delay)) return Promise.resolve();
 
   return new Promise(resolve => setTimeout(resolve, delay));
 }

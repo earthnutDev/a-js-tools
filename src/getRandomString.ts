@@ -5,7 +5,7 @@
  * @module @a-js-tools/get-random-string
  * @license MIT
  */
-import { isNaN, isNumber, isPlainObject } from 'a-type-of-js';
+import { isNaN, isNumber, isPlainObject, isUndefined } from 'a-type-of-js';
 import { isBrowser } from './isNode';
 
 /**
@@ -84,9 +84,8 @@ export function getRandomString(
       (!isNumber(options.length) ||
         options.length < 1 ||
         !Number.isInteger(options.length)))
-  ) {
+  )
     throw new TypeError('参数类型错误 ❌ (getRandomString)');
-  }
 
   const initOptions: RandomStringOptions & {
     length: number;
@@ -105,15 +104,10 @@ export function getRandomString(
   };
 
   /// 生成 UUID
-  if (initOptions.type === 'uuid') {
-    return crypto.randomUUID();
-  }
-
-  if (isNumber(options) && Number.isInteger(options) && options > 0) {
-    // 验证输入参数
+  if (initOptions.type === 'uuid') return crypto.randomUUID();
+  // 验证输入参数
+  if (isNumber(options) && Number.isInteger(options) && options > 0)
     Object.assign(initOptions, { length: options });
-  }
-
   if (isPlainObject(options)) {
     Object.assign(initOptions, options);
     initOptions.length = initOptions.length < 1 ? 32 : initOptions.length;
@@ -121,17 +115,14 @@ export function getRandomString(
   /**  生成随机字符串  */
   const templateCharsArr: string[] = initOptions.chars.split('');
   // 添加大写字母
-  if (initOptions.includeUppercaseLetters) {
+  if (initOptions.includeUppercaseLetters)
     interleaveString(templateCharsArr, initOptions.chars.toUpperCase());
-  }
   // 添加数字
-  if (initOptions.includeNumbers) {
+  if (initOptions.includeNumbers)
     interleaveString(templateCharsArr, initOptions.chars2);
-  }
   // 添加特殊字符
-  if (initOptions.includeSpecial) {
+  if (initOptions.includeSpecial)
     interleaveString(templateCharsArr, initOptions.chars3);
-  }
 
   // 使用密码学安全的随机数生成器
   const bytes =
@@ -165,11 +156,8 @@ export function getRandomString(
     const maxLength = Math.max(str1Length, str2Length);
 
     for (let i = 0; i < maxLength; i++) {
-      if (i < str1Length && str2[i] !== undefined) {
-        str1[i] += str2[i];
-      } else if (i < str2Length) {
-        str1[i] = str2[i];
-      }
+      if (i < str1Length && !isUndefined(str2[i])) str1[i] += str2[i];
+      else if (i < str2Length) str1[i] = str2[i];
     }
   }
   return result;
