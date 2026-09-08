@@ -2,9 +2,9 @@
  * 获取随机字符串
  */
 
-import { ObjectAssign } from './object/createConstructor';
-import { getRandomInt } from './getRandomNumber';
 import { isNumber, isPlainObject, isUndefined } from '@vvi/is';
+import { getRandomInt } from './getRandomNumber';
+import { ObjectAssign } from './object/createConstructor';
 /**
  * # 随机字符串生成器
  */

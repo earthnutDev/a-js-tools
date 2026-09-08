@@ -111,15 +111,15 @@ packageJson = {
     ...exportsList,
   },
   keywords: ['js utils', 'js 工具', 'mudbean', 'vvi'],
-  homepage: 'https://npm.lmssee.cn/utils',
+  homepage: 'https://npm.gleanings.cn/utils',
   dependencies,
   bugs: {
-    url: 'https://github.com/MrMudBean/utils/issues',
+    url: 'https://github.com/gleanings/utils/issues',
     email: 'Mr.MudBean@outlook.com',
   },
   repository: {
     type: 'git',
-    url: 'git+https://github.com/MrMudBean/utils.git',
+    url: 'git+https://github.com/gleanings/utils.git',
   },
   publishConfig: {
     access: 'public',

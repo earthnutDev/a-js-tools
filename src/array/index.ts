@@ -1,7 +1,7 @@
-import { intersection } from './intersection';
-import { union } from './union';
 import { difference } from './difference';
+import { intersection } from './intersection';
 import { symmetricDifference } from './symmetricDifference';
+import { union } from './union';
 
 export { union, intersection, difference, symmetricDifference };
 /**

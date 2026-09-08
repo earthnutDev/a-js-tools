@@ -1,7 +1,7 @@
-import { escapeRegExp } from './escapeRegExp';
-import { autoEscapedRegExpOptions } from './types';
-import { parse } from './parse';
 import { isString, isUndefined } from '@vvi/is';
+import { escapeRegExp } from './escapeRegExp';
+import { parse } from './parse';
+import type { autoEscapedRegExpOptions } from './types';
 
 /**
  * # 适用于简单的文本字符串自动转化为简单模式正则表达式

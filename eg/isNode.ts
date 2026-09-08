@@ -1,5 +1,5 @@
-import { isUndefined } from '@mudbean/is';
-import { dev } from '@qqi/dev';
+import { isUndefined } from '@vvi/is';
+import { dev } from '@vvi/dev';
 
 dev.skip('测试是否是 node 环境', it => {
   it('测试报错将返回错误', () => {

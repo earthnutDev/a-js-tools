@@ -2,6 +2,10 @@
 
 `typescript` version7 以上将导致 `@rollup/plugin-typescript` 插件报错 `[!] TypeError: Cannot read properties of undefined (reading 'ES2015')` ！！！
 
+## 2.1.1 (2026-9-8)
+
+- 维护信息
+
 ## 2.1.0 (2026-8-8)
 
 - 添加 `tryJSONParse` 、 `tryJSONStringify` 方法
